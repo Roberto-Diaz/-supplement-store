@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insertar cliente</title>
+</head>
+<body>
+  <form action="/postinsertarCliente/" method="post">
+    {% csrf_token %}
+Nombre:
+<input type="text" name="nom" required>
+<br>
+Apellidos:
+<input type="text" name="apellidos" required>
+<br>
+Edad:
+<input type="number" name="edad" required>
+<br>
+Sexo:
+<input type="text" name="sexo" required>
+<br>
+Telefono:
+<input type="text" name="telefono" required>
+<br>
+Email:
+<input type="email" name="email" required>
+<br>
+Direccion:
+<input type="text" name="direccion" required>
+<br>
+Contraseña:
+<input type="text" name="password" required>
+<br>
+<input type="submit" name="enviar" value="Guardar">
+  </form>
+{% if res %}
+<h2>{{res}}</h2>
+{% endif %}
+
+
+
+</body>
+</html>

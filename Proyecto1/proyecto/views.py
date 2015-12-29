@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from proyecto.models import *
 
+
+def getConsulta(request):
+    rcliente = Cliente.objects.all()
+    return render(request,'Consultar.html', {'regs':rcliente})
+
 def index(request):
     return render(request, 'index.html')
 

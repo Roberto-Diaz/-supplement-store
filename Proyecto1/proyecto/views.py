@@ -27,3 +27,18 @@ def postInsertarCliente(request):
     direccion = direccion, password = password)
     c.save()
     return render(request, 'inserCliente.html',{'res':'Cliente registrado correctamente'})
+
+def getProveedor(request):
+    return render(request, 'inserProveedor.html')
+
+def postInsertarProveedor(request):
+    nombre = request.POST['nombre']
+    apellidos = request.POST['apellidos']
+    sexo = request.POST['sexo']
+    telefono = request.POST['telefono']
+    email = request.POST['email']
+    direccion = request.POST['direccion']
+    p = Proveedor(nombre = nombre, apellidos = apellidos, sexo = sexo,
+    telefono = telefono, email = email, direccion = direccion)
+    p.save()
+    return render(request, 'inserProveedor.html',{'res':'Proveedor registrado correctamente'})

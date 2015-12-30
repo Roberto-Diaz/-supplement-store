@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insertar Proveedor</title>
+
+</head>
+<body>
+
+  <form action="/postinsertarproveedor/" method="post">
+      {% csrf_token %}
+  Nombre:
+  <input type="text" name="nombre" required>
+  <br>
+  <br>
+  Apellidos:
+  <input type="text" name="apellidos" required>
+  <br><br>
+  Sexo:
+  <input type="text" name="sexo" required>
+  <br><br>
+  Telefono:
+  <input type="text" name="telefono" required>
+  <br><br>
+  Email:
+  <input type="email" name="email" required>
+  <br><br>
+  Direccion:
+  <input type="text" name="direccion" required>
+  <br><br>
+  <input type="submit" name="enviar" value="Guardar">
+  </form>
+  
+  {% if res %}
+  <h2>{{res}}</h2>
+  {% endif %}
+</body>
+</html>

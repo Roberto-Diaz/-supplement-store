@@ -23,7 +23,6 @@ class Proveedor(models.Model):
 class Sucursal(models.Model):
     ubicacion = models.TextField()
 
-
 class Personal(models.Model):
     nombre = models.CharField(max_length=30)
     apellidos = models.CharField(max_length=30)

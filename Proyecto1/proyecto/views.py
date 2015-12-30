@@ -42,3 +42,12 @@ def postInsertarProveedor(request):
     telefono = telefono, email = email, direccion = direccion)
     p.save()
     return render(request, 'inserProveedor.html',{'res':'Proveedor registrado correctamente'})
+
+def getSucursal(request):
+    return render(request, 'inserSucursal.html')
+
+def postInsertarSucursal(request):
+    ubi = request.POST['ubicacion']
+    s = Sucursal(ubicacion = ubi)
+    s.save()
+    return render(request, 'inserSucursal.html',{'res':'Sucursal registrada correctamente'})

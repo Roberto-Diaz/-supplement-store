@@ -69,3 +69,32 @@ def postInsertarPersonal(request):
     direccion = direccion, sucursal_id = sucursal)
     pe.save()
     return render(request, 'Personal.html',{'res':'Personal registrado correctamente'})
+
+
+def getProductos(request):
+    return render(request, 'Productos.html')
+
+def postInsertarProductos(request):
+    nombre = request.POST['nombre']
+    marca = request.POST['marca']
+    precio = request.POST['precio']
+    proveedor = request.POST['proveedor']
+    personal = request.POST['personal']
+
+    pr = Productos(nombre = nombre, marca = marca,
+    precio = precio, proveedor_id = proveedor, personal_id = personal)
+    pr.save()
+    return render(request, 'Productos.html',{'res':'Producto registrado correctamente'})
+
+def getVentas(request):
+    return render(request, 'Ventas.html')
+
+def postInsertarVentas(request):
+    total = request.POST['total']
+    cliente = request.POST['cliente']
+    personal = request.POST['personal']
+    sucursal = request.POST['sucursal']
+
+    v= Ventas(total = total, cliente_id = cliente, personal_id = personal, sucursal_id = sucursal)
+    v.save()
+    return render(request, 'Ventas.html',{'res':'Venta registrada correctamente'})

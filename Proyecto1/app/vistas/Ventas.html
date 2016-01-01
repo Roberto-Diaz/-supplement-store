@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ventas</title>
+  <script src="recursos/js/validaciones.js"></script>
+</head>
+<body>
+<form action="/postinsertarventas/" method="post">
+  {% csrf_token %}
+Total:
+<input type="text" onkeypress="return validardecimal(event)" name="total" required>
+<br><br>
+Cliente:
+<input type="text" onkeypress="return letras(event)" name="cliente" required>
+<br><br>
+Personal:
+<input type="text" onkeypress="return letras(event)" name="personal" required>
+<br><br>
+Sucursal:
+<input type="text" onkeypress="return letras(event)" name="sucursal" required>
+<br><br>
+<input type="submit" name="enviar" value="Guardar">
+</form>
+
+{% if res %}
+<h1>{{res}}</h1>
+{% endif %}
+
+</body>
+</html>

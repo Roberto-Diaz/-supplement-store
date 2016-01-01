@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Sucursal</title>
+</head>
+<body>
+  <form action="/postinsertarsucursal/" method="post">
+    {% csrf_token %}
+  Ubicacion:
+  <input type="text" name="ubicacion" required>
+  <br><br>
+  <input type="submit" name="enviar" value="Guardar">
+  </form>
+  {% if res %}
+  <h2>{{res}}</h2>
+  {% endif %}
+
+</body>
+</html>

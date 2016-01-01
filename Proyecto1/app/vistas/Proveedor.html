@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insertar Proveedor</title>
+    <script src="recursos/js/validaciones.js"></script>
+
+</head>
+<body>
+
+  <form action="/postinsertarproveedor/" method="post">
+      {% csrf_token %}
+  Nombre:
+  <input type="text" onkeypress="return letras(event)" name="nombre" required>
+  <br>
+  <br>
+  Apellidos:
+  <input type="text" onkeypress="return letras(event)" name="apellidos" required>
+  <br><br>
+  Sexo:
+  <select class="" name="">
+    <option value="A">Masculino</option>
+    <option value="B">Femenino</option>
+  </select>
+  <!--
+  <input type="text" name="sexo" required>-->
+  <br><br>
+  Telefono:
+  <input type="text" onkeypress="return numeros(event)" name="telefono" required>
+  <br><br>
+  Email:
+  <input type="email" name="email" required>
+  <br><br>
+  Direccion:
+  <input type="text" onkeypress="return rola(event)" name="direccion" required>
+  <br><br>
+  <input type="submit" name="enviar" value="Guardar">
+  </form>
+
+  {% if res %}
+  <h2>{{res}}</h2>
+  {% endif %}
+</body>
+</html>

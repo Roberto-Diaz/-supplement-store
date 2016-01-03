@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Productos</title>
+  <script src="recursos/js/validaciones.js"></script>
 </head>
 <body>
   <form action="/postinsertarproductos/" method="post">
     {% csrf_token %}
   Nombre:
-  <input type="text" name="nombre" required>
+  <input type="text" onkeypress="return letras(event)" name="nombre" required>
   <br><br>
   Marca:
-  <input type="text" name="marca" required>
+  <input type="text" onkeypress="return letras(event)" name="marca" required>
   <br><br>
   Precio:
-  <input type="text" name="precio" required>
+  <input type="text" onkeypress="return validardecimal(event)" name="precio" required>
   <br><br>
   Proveedor:
-  <input type="text" name="proveedor" required>
+  <input type="text" onkeypress="return letras(event)" name="proveedor" required>
   <br><br>
   Personal:
-  <input type="text" name="personal" required>
+  <input type="text" onkeypress="return letras(event)"  name="personal" required>
   <br><br>
   <input type="submit" name="enviar" value="Guardar">
   <br><br>

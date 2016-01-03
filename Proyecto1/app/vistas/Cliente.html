@@ -3,33 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Insertar cliente</title>
+  <script src="recursos/js/validaciones.js"></script>
 </head>
 <body>
   <form action="/postinsertarCliente/" method="post">
     {% csrf_token %}
 Nombre:
-<input type="text" name="nom" required>
+<input id="nombre" onkeypress="return letras(event)" type="text" name="nom" required>
 <br>
 Apellidos:
-<input type="text" name="apellidos" required>
+<input id="apellido" onkeypress="return letras(event)" type="text" name="apellidos" required>
 <br>
 Edad:
-<input type="number" name="edad" required>
+
+<input type="number" onkeypress="return numeros(event)" name="edad" required>
+
 <br>
 Sexo:
-<input type="text" name="sexo" required>
+<!--
+<input type="text" name="sexo" required>-->
+<select class="" name="">
+  <option value="A">Masculinno</option>
+  <option value="B">Femenino</option>
+</select>
 <br>
 Telefono:
-<input type="text" name="telefono" required>
+<input type="text" onkeypress="return numeros(event)" name="telefono" required>
 <br>
 Email:
 <input type="email" name="email" required>
 <br>
 Direccion:
-<input type="text" name="direccion" required>
+<input type="text" onkeypress="return rola(event)" name="direccion" required>
 <br>
 Contraseña:
-<input type="text" name="password" required>
+<input type="text" onkeypress="return contraseña(event)" name="password" required>
 <br>
 <input type="submit" name="enviar" value="Guardar">
   </form>

@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Ventas</title>
+  <script src="recursos/js/validaciones.js"></script>
 </head>
 <body>
 <form action="/postinsertarventas/" method="post">
   {% csrf_token %}
 Total:
-<input type="text" name="total" required>
+<input type="text" onkeypress="return validardecimal(event)" name="total" required>
 <br><br>
 Cliente:
-<input type="text" name="cliente" required>
+<input type="text" onkeypress="return letras(event)" name="cliente" required>
 <br><br>
 Personal:
-<input type="text" name="personal" required>
+<input type="text" onkeypress="return letras(event)" name="personal" required>
 <br><br>
 Sucursal:
-<input type="text" name="sucursal" required>
+<input type="text" onkeypress="return letras(event)" name="sucursal" required>
 <br><br>
 <input type="submit" name="enviar" value="Guardar">
 </form>

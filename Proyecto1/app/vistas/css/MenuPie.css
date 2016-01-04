@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+  
+}
+
+header #menu{
+    margin-top: -0.8%;
+}
+
+header{
+    background: #607d8b;
+}
+
+
+#menu ul li a{
+    text-decoration: none;
+    color: whitE;
+}
+
+#menu ul li{
+    list-style: none;
+    float: left;
+    padding: 25px;
+     background-color: rgba(21,21,21,0.8);
+}
+
+#menu ul li:hover{
+    list-style: none;
+    float: left;
+    padding: 25px;
+    color: black;
+    background: rgba(21,21,21,0.5);
+}
+
+#pie{
+    margin-top: 30%;
+    text-align: center;
+    background: rgba(21,21,21,0.7);
+    width: 100%;
+    color: #fff;
+    height: 40px;
+}
+
+#pie h6{
+    font-size: 13px;
+}

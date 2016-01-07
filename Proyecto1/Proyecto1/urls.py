@@ -19,7 +19,8 @@ urlpatterns = patterns('',
     url(r'^Consultar/', getConsulta),
     url(r'^postinsertarCliente/', postInsertarCliente),
     url(r'^Cliente/', getCliente),
-    url(r'^$',index),
+    url(r'^',index),
+    #url(r'^$',index),
     #url(r'^admin/', include(admin.site.urls)),
 
 )

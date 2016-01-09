@@ -78,7 +78,8 @@
         <br>
       <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
     </form>
-
+  </tr>
+  {% endfor %}
   </table>
   <button onclick="muestra()" type="button" class="btn btn-success">Registrar</button>
 
@@ -133,17 +134,19 @@
     </section>
   </div>
 <!--*********************************Modifica*********************-->
+<button onclick="muestra2()" type="button" class="btn btn-success">Modificar</button>
 <br><br>
+<div id="modificacion">
 <form action="/buscarCliente/" method="get">
       Buscar por ID:
       <br>
-      <input type="number" name="id" value="1">
+      <input type="number" name="idbus" value="1">
       <br>
       <input type="submit" value="Buscar">
 </form>
     {% if res %}
 
-<div id="Modificacion" >
+
   <section>
     <form action="/postModificar/" method="post" >
       {% csrf_token %}
@@ -188,12 +191,10 @@
   <input  value="{{res.password}}" type="text" onkeypress="return contraseña(event)" name="password" required>
   </div>
   <input onclick="oculta()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
-    </form>
+  </form>
       {% endif %}
   </section>
 </div>
-
-
 
 
 </body>

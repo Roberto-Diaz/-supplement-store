@@ -11,8 +11,14 @@ function letras(tecla){
 function oculta(){
   var oculta = document.getElementById("registro");
   oculta.style.display="none";
+  var oculta2 = document.getElementById("modificacion");
+  oculta2.style.display="none";
 }
 
+function muestra2(){
+  var mostrar2 = document.getElementById("modificacion");
+  mostrar2.style.display="block";
+}
 
 function muestra(){
   var mostrar = document.getElementById("registro");

@@ -115,11 +115,18 @@ def postInsertarVentas(request):
 
 
 def buscar(request):
-    if 'id' in request.GET:
-        id = request.GET['id']
-        c = Cliente.objects.get(id)
-        return render(request, 'Consultar.html',{'res':p})
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        c = Cliente.objects.get(id=id)
+        return render(request, 'Consultar.html',{'res':c})
     return render(request, 'Consultar.html')
+
+def modificar(request):
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        p = persona.objects.get(idPersona=id)
+        return render(request, 'modificar.html',{'res':p})
+    return render(request, 'modificar.html')
 
 def postModificar(request):
     nom = request.POST['nom']

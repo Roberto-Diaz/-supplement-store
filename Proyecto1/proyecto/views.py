@@ -9,6 +9,18 @@ def getConsulta(request):
 def index(request):
     return render(request, 'index.html')
 
+#def productosLineas(request):
+#    return render(request, 'productosLineas.html')
+def eliminarCliente(request):
+	c = Cliente(request.POST['id'])
+	c.delete()
+	return getConsulta(request)
+
+
+
+def productosLin(request):
+    return render(request, 'productosLineas.html')
+
 def getCliente(request):
     return render(request, 'Cliente.html')
 
@@ -26,7 +38,8 @@ def postInsertarCliente(request):
     edad = edad, sexo = sexo, telefono = telefono, email = email,
     direccion = direccion, password = password)
     c.save()
-    return render(request, 'Cliente.html',{'res':'Cliente registrado correctamente'})
+    return getConsulta(request)
+    #return render(request, 'Consultar.html',{'res':'Cliente registrado correctamente'})
 
 def getProveedor(request):
     return render(request, 'Proveedor.html')
@@ -98,3 +111,27 @@ def postInsertarVentas(request):
     v= Ventas(total = total, cliente_id = cliente, personal_id = personal, sucursal_id = sucursal)
     v.save()
     return render(request, 'Ventas.html',{'res':'Venta registrada correctamente'})
+
+
+
+def buscar(request):
+    if 'id' in request.GET:
+        id = request.GET['id']
+        c = Cliente.objects.get(id)
+        return render(request, 'Consultar.html',{'res':p})
+    return render(request, 'Consultar.html')
+
+def postModificar(request):
+    nom = request.POST['nom']
+    apellidos = request.POST['apellidos']
+    edad = request.POST['edad']
+    sexo = request.POST['sexo']
+    telefono = request.POST['telefono']
+    email = request.POST['email']
+    direccion = request.POST['direccion']
+    password = request.POST['password']
+    c = Cliente(nombre = nom, apellidos = apellidos,
+    edad = edad, sexo = sexo, telefono = telefono, email = email,
+    direccion = direccion, password = password)
+    c.save()
+    return getConsulta(request)

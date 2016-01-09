@@ -4,8 +4,9 @@
 }
 
 html,body{
-  
+
 }
+
 
 header #menu{
     margin-top: -0.8%;
@@ -14,6 +15,7 @@ header #menu{
 header{
     background: #607d8b;
 }
+
 
 
 #menu ul li a{
@@ -43,6 +45,7 @@ header{
     width: 100%;
     color: #fff;
     height: 40px;
+
 }
 
 #pie h6{

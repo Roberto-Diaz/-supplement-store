@@ -1,11 +1,17 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+admin.autodiscover()
+from django.views.generic import TemplateView
+
+from proyecto import views
 from proyecto.views import *
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'Proyecto1.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^postModifica/', postModificar),
+    url(r'^buscarCliente/', buscar),
     url(r'^postinsertarventas/', postInsertarVentas),
     url(r'^Ventas/', getVentas),
     url(r'^postinsertarproductos/', postInsertarProductos),
@@ -19,8 +25,12 @@ urlpatterns = patterns('',
     url(r'^Consultar/', getConsulta),
     url(r'^postinsertarCliente/', postInsertarCliente),
     url(r'^Cliente/', getCliente),
-    url(r'^',index),
-    #url(r'^$',index),
+    url(r'^productosLineas/',productosLin),
+    url(r'^postEliminar/',eliminarCliente),
+    #url(r'^',productosLineas),
+    #url(r'^$',views.index, name="factura"),
+    url(r'^$',index),
+    #url(r'^$',views.index, name='inde),
     #url(r'^admin/', include(admin.site.urls)),
 
 )

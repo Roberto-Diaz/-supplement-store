@@ -7,6 +7,19 @@ function letras(tecla){
 }
 
 
+
+function oculta(){
+  var oculta = document.getElementById("registro");
+  oculta.style.display="none";
+}
+
+
+function muestra(){
+  var mostrar = document.getElementById("registro");
+  mostrar.style.display="block";
+}
+
+
 function numeros(tecla){
     if(tecla.keyCode>="0".charCodeAt(0) && tecla.keyCode<="9".charCodeAt(0))
     {

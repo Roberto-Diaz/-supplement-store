@@ -6,14 +6,33 @@ function letras(tecla){
    }
 }
 
+function ocultarRprove(){
+  var oculta = document.getElementById("registroproveedor");
+  oculta.style.display="none";
+}
 
+
+function ocultarRSucursal(){
+  var oculta = document.getElementById("registroSucursal");
+  oculta.style.display="none";
+}
+
+function muestraRSucursal(){
+  var oculta = document.getElementById("registroSucursal");
+  oculta.style.display="block";
+}
+
+function muestraRprove(){
+  var oculta = document.getElementById("registroproveedor");
+  oculta.style.display="block";
+}
 
 function oculta(){
   var oculta = document.getElementById("registro");
   oculta.style.display="none";
-  var oculta2 = document.getElementById("modificacion");
-  oculta2.style.display="none";
 }
+
+
 
 function muestra2(){
   var mostrar2 = document.getElementById("modificacion");

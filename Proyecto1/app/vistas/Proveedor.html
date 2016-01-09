@@ -3,11 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <title>Insertar Proveedor</title>
-    <script src="recursos/js/validaciones.js"></script>
 
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+
+
+
+      <link rel="stylesheet" href="{% static 'css/MenuPie.css' %}">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'bootstrap-theme.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/visorProductos.css' %}">
+          <script src="{% static 'js/productos.js' %}"></script>
+          <script src="{% static 'js/validaciones.js' %}"></script>
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+          <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
 </head>
-<body>
+<body onload="ocultarRprove()">
 
+
+  <header>
+      <img href="index.html" src="{% static 'img/logo.png' %}" alt="Logo de la empresa" id="logo" width="35%">
+
+      <nav id="menu" style="width:100%" >
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="/productosLineas/">Productos</a></li>
+          <li><a href="tienda-fisica.html">Tienda fisica</a></li>
+          <li><a href="/Sucursal/">Sucursales</a></li>
+          <li><a href="/Consultar/">Clientes</a></li>
+          <li><a href="acerca-de.html">Personal</a></li>
+          <li><a href="acerca-de.html">Proveedor</a></li>
+          <li><a href="acerca-de.html">Productos</a></li>
+          <li><a href="acerca-de.html">Ventas</a></li>
+          <li><a href="acerca-de.html">Acerca de...</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+
+
+    <table class="table table-striped">
+      <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+
+      <th>Sexo</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Direccion</th>
+      <th></th>
+      <th></th>
+      </tr>
+  {% for reg in regs %}
+
+<tr>
+  <td>{{reg.id}},</td>
+  <td>{{reg.nombre}},</td>
+  <td> {{reg.apellidos}},</td>
+  <td>{{reg.sexo}},</td>
+  <td> {{reg.telefono}},</td>
+  <td>{{reg.email}},</td>
+  <td> {{reg.direccion}},</td>
+
+
+    <form action="/postEliminarProve/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{reg.id}}">
+      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
+
+    </form>
+
+    <form action="/buscarProveedor/" method="get">
+      <input type="hidden" name="idbus" value="{{reg.id}}">
+      <td><input  type="button" class="btn btn-info" value="Modificar" onclick="{this.form.submit()}">  </td>
+    </form>
+
+
+    </tr>
+    {% endfor %}
+    </table>
+
+<button onclick="muestraRprove()" type="button" class="btn btn-success">Registrar</button>
+
+
+
+<br><br>
+  <!--////////////////////////////////////*******************************-->
+<div id="registroproveedor">
   <form action="/postinsertarproveedor/" method="post">
       {% csrf_token %}
   Nombre:
@@ -17,13 +102,13 @@
   Apellidos:
   <input type="text" onkeypress="return letras(event)" name="apellidos" required>
   <br><br>
-  Sexo:
+  Sexo:<!--
   <select class="" name="">
     <option value="A">Masculino</option>
     <option value="B">Femenino</option>
   </select>
-  <!--
-  <input type="text" name="sexo" required>-->
+-->
+  <input type="text" name="sexo" required>
   <br><br>
   Telefono:
   <input type="text" onkeypress="return numeros(event)" name="telefono" required>
@@ -34,8 +119,9 @@
   Direccion:
   <input type="text" onkeypress="return rola(event)" name="direccion" required>
   <br><br>
-  <input type="submit" name="enviar" value="Guardar">
+  <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar">
   </form>
+</div>
 
   {% if res %}
   <h2>{{res}}</h2>

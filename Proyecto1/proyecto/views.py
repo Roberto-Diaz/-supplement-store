@@ -6,6 +6,8 @@ def getConsulta(request):
     rcliente = Cliente.objects.all()
     return render(request,'Consultar.html', {'regs':rcliente})
 
+
+
 def index(request):
     return render(request, 'index.html')
 
@@ -17,6 +19,15 @@ def eliminarCliente(request):
 	return getConsulta(request)
 
 
+def eliminarProveedor(request):
+	c = Proveedor(request.POST['id'])
+	c.delete()
+	return getProveedor(request)
+
+def eliminarSucursal(request):
+	c = Sucursal(request.POST['id'])
+	c.delete()
+	return getSucursal(request)
 
 def productosLin(request):
     return render(request, 'productosLineas.html')
@@ -42,7 +53,9 @@ def postInsertarCliente(request):
     #return render(request, 'Consultar.html',{'res':'Cliente registrado correctamente'})
 
 def getProveedor(request):
-    return render(request, 'Proveedor.html')
+    rprovedor = Proveedor.objects.all()
+    return render(request,'Proveedor.html', {'regs':rprovedor})
+
 
 def postInsertarProveedor(request):
     nombre = request.POST['nombre']
@@ -54,16 +67,19 @@ def postInsertarProveedor(request):
     p = Proveedor(nombre = nombre, apellidos = apellidos, sexo = sexo,
     telefono = telefono, email = email, direccion = direccion)
     p.save()
-    return render(request, 'Proveedor.html',{'res':'Proveedor registrado correctamente'})
+    return getProveedor(request)
+    #return render(request, 'Proveedor.html',{'res':'Proveedor registrado correctamente'})
 
 def getSucursal(request):
-    return render(request, 'Sucursal.html')
+    rsucursal = Sucursal.objects.all()
+    return render(request,'Sucursal.html', {'regs':rsucursal})
 
 def postInsertarSucursal(request):
     ubi = request.POST['ubicacion']
     s = Sucursal(ubicacion = ubi)
     s.save()
-    return render(request, 'Sucursal.html',{'res':'Sucursal registrada correctamente'})
+    return getSucursal(request)
+    #return render(request, 'Sucursal.html',{'res':'Sucursal registrada correctamente'})
 
 def getPersonal(request):
     return render(request, 'Personal.html')
@@ -118,17 +134,27 @@ def buscar(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
         c = Cliente.objects.get(id=id)
-        return render(request, 'Consultar.html',{'res':c})
-    return render(request, 'Consultar.html')
+        return render(request, 'ModificarCliente.html',{'res':c})
+    return render(request, 'ModificarCliente.html')
 
-def modificar(request):
+def buscarProveedor(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
-        p = persona.objects.get(idPersona=id)
-        return render(request, 'modificar.html',{'res':p})
-    return render(request, 'modificar.html')
+        c = Proveedor.objects.get(id=id)
+        return render(request, 'ModificarProveedor.html',{'res':c})
+    return render(request, 'ModificarProveedor.html')
+
+
+def buscarSucursal(request):
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        c = Sucursal.objects.get(id=id)
+        return render(request, 'ModificarSucursal.html',{'res':c})
+    return render(request, 'ModificarSucursal.html')
+
 
 def postModificar(request):
+    id = request.POST['id']
     nom = request.POST['nom']
     apellidos = request.POST['apellidos']
     edad = request.POST['edad']
@@ -137,8 +163,31 @@ def postModificar(request):
     email = request.POST['email']
     direccion = request.POST['direccion']
     password = request.POST['password']
-    c = Cliente(nombre = nom, apellidos = apellidos,
+    c = Cliente(id= id, nombre = nom, apellidos = apellidos,
     edad = edad, sexo = sexo, telefono = telefono, email = email,
     direccion = direccion, password = password)
     c.save()
     return getConsulta(request)
+
+
+def postModificarProveedor(request):
+        id = request.POST['id']
+        nom = request.POST['nom']
+        apellidos = request.POST['apellidos']
+        sexo = request.POST['sexo']
+        telefono = request.POST['telefono']
+        email = request.POST['email']
+        direccion = request.POST['direccion']
+        c = Proveedor(id= id, nombre = nom, apellidos = apellidos,
+         sexo = sexo, telefono = telefono, email = email,
+        direccion = direccion)
+        c.save()
+        return getProveedor(request)
+
+
+def postModificarSucursal(request):
+        id = request.POST['id']
+        ubicacion = request.POST['ubicacion']
+        c = Sucursal(id = id, ubicacion = ubicacion)
+        c.save()
+        return getSucursal(request)

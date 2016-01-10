@@ -17,6 +17,25 @@ function ocultarRSucursal(){
   oculta.style.display="none";
 }
 
+function ocultapersonal(){
+  var oculta = document.getElementById("registropersonal");
+  oculta.style.display="none";
+}
+
+function ocultaproducto(){
+  var oculta = document.getElementById("registroproducto");
+  oculta.style.display="none";
+}
+function muestraproducto(){
+  var oculta = document.getElementById("registroproducto");
+  oculta.style.display="block";
+}
+
+function muestrapersonal(){
+  var oculta = document.getElementById("registropersonal");
+  oculta.style.display="block";
+}
+
 function muestraRSucursal(){
   var oculta = document.getElementById("registroSucursal");
   oculta.style.display="block";

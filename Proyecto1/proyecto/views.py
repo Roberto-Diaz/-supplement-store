@@ -24,6 +24,17 @@ def eliminarProveedor(request):
 	c.delete()
 	return getProveedor(request)
 
+
+def eliminarPersonal(request):
+	c = Personal(request.POST['id'])
+	c.delete()
+	return getPersonal2(request)
+
+def eliminarProducto(request):
+	c = Productos(request.POST['id'])
+	c.delete()
+	return getProductos(request)
+
 def eliminarSucursal(request):
 	c = Sucursal(request.POST['id'])
 	c.delete()
@@ -81,8 +92,12 @@ def postInsertarSucursal(request):
     return getSucursal(request)
     #return render(request, 'Sucursal.html',{'res':'Sucursal registrada correctamente'})
 
-def getPersonal(request):
-    return render(request, 'Personal.html')
+#def getPersonal(request):
+#    return render(request, 'Personal.html')
+def getPersonal2(request):
+    rpersonal = Personal.objects.all()
+    suc = Sucursal.objects.all()
+    return render(request,'Personal.html', {'regs':rpersonal, 'r':suc})
 
 def postInsertarPersonal(request):
     nombre = request.POST['nombre']
@@ -97,11 +112,20 @@ def postInsertarPersonal(request):
     edad = edad, sexo = sexo, telefono = telefono, email = email,
     direccion = direccion, sucursal_id = sucursal)
     pe.save()
-    return render(request, 'Personal.html',{'res':'Personal registrado correctamente'})
+    return getPersonal2(request)
+    #return render(request, 'Personal.html',{'res':'Personal registrado correctamente'})
 
+
+
+
+#def getProductos(request):
+#    return render(request, 'Productos.html')
 
 def getProductos(request):
-    return render(request, 'Productos.html')
+    rproductos = Productos.objects.all()
+    per = Personal.objects.all()
+    pro = Proveedor.objects.all()
+    return render(request,'Productos.html', {'regs':rproductos, 'per':per, 'pro':pro})
 
 def postInsertarProductos(request):
     nombre = request.POST['nombre']
@@ -109,11 +133,10 @@ def postInsertarProductos(request):
     precio = request.POST['precio']
     proveedor = request.POST['proveedor']
     personal = request.POST['personal']
-
     pr = Productos(nombre = nombre, marca = marca,
     precio = precio, proveedor_id = proveedor, personal_id = personal)
     pr.save()
-    return render(request, 'Productos.html',{'res':'Producto registrado correctamente'})
+    return getProductos(request)
 
 def getVentas(request):
     return render(request, 'Ventas.html')
@@ -152,6 +175,19 @@ def buscarSucursal(request):
         return render(request, 'ModificarSucursal.html',{'res':c})
     return render(request, 'ModificarSucursal.html')
 
+def buscarPersonal(request):
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        p = Personal.objects.get(id=id)
+        return render(request, 'ModificarPersonal.html',{'res':p})
+    return render(request, 'ModificarPersonal.html')
+
+def buscarProducto(request):
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        p = Productos.objects.get(id=id)
+        return render(request, 'ModificarProducto.html',{'res':p})
+    return render(request, 'ModificarProducto.html')
 
 def postModificar(request):
     id = request.POST['id']
@@ -184,6 +220,33 @@ def postModificarProveedor(request):
         c.save()
         return getProveedor(request)
 
+def postModificarPersonal(request):
+        id = request.POST['id']
+        nom = request.POST['nom']
+        apellidos = request.POST['apellidos']
+        sexo = request.POST['sexo']
+        telefono = request.POST['telefono']
+        email = request.POST['email']
+        direccion = request.POST['direccion']
+        edad = request.POST['edad']
+        sucursal_id = request.POST['sucursal_id']
+        p = Personal(id= id, nombre = nom, apellidos = apellidos,
+         sexo = sexo, telefono = telefono, email = email,
+        direccion = direccion,edad=edad,sucursal_id=sucursal_id)
+        p.save()
+        return getPersonal2(request)
+
+def postModificarProducto(request):
+        id = request.POST['id']
+        nom = request.POST['nom']
+        marca = request.POST['marca']
+        precio = request.POST['precio']
+        proveedor_id = request.POST['proveedor_id']
+        personal_id = request.POST['personal_id']
+        p = Productos(id= id, nombre = nom, marca = marca,
+         precio = precio, proveedor_id = proveedor_id, personal_id = personal_id)
+        p.save()
+        return getProductos(request)
 
 def postModificarSucursal(request):
         id = request.POST['id']

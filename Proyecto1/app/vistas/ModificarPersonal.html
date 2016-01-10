@@ -86,7 +86,19 @@
   <label for="">Direccion:</label>
   <input  value="{{res.direccion}}" type="text" onkeypress="return rola(event)" name="direccion" required>
   </div>
-  <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+
+  <div class="form-group">
+  <label for="">Edad:</label>
+  <input  value="{{res.edad}}" type="number" onkeypress="return numeros(event)" name="edad" required>
+  </div>
+
+  <div class="form-group">
+  <label for="">Sucursal:</label>
+  <input  value="{{res.sucursal_id}}" type="text" onkeypress="return rola(event)" name="sucursal_id" required>
+  </div>
+
+
+  <input onclick="ocultapersonal()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

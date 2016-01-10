@@ -3,9 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <title>Productos</title>
-  <script src="recursos/js/validaciones.js"></script>
+
+      {% load static from staticfiles %}
+      <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+
+
+
+        <link rel="stylesheet" href="{% static 'css/MenuPie.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/visorProductos.css' %}">
+            <script src="{% static 'js/productos.js' %}"></script>
+            <script src="{% static 'js/validaciones.js' %}"></script>
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
 </head>
-<body>
+<body onload="ocultaproducto()">
+
+  <header>
+      <img href="index.html" src="{% static 'img/logo.png' %}" alt="Logo de la empresa" id="logo" width="35%">
+
+      <nav id="menu" style="width:100%" >
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="/productosLineas/">Productos</a></li>
+          <li><a href="tienda-fisica.html">Tienda fisica</a></li>
+          <li><a href="/Sucursal/">Sucursales</a></li>
+          <li><a href="/Consultar/">Clientes</a></li>
+          <li><a href="acerca-de.html">Personal</a></li>
+          <li><a href="acerca-de.html">Proveedor</a></li>
+          <li><a href="acerca-de.html">Productos</a></li>
+          <li><a href="acerca-de.html">Ventas</a></li>
+          <li><a href="acerca-de.html">Acerca de...</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+
+
+    <table class="table table-striped">
+      <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Marca</th>
+      <th>Precio</th>
+      <th>Proveedor</th>
+      <th>Personal</th>
+      <th></th>
+      <th></th>
+      </tr>
+  {% for reg in regs %}
+
+  <tr>
+  <td>{{reg.id}},</td>
+  <td>{{reg.nombre}},</td>
+  <td> {{reg.marca}},</td>
+  <td>{{reg.precio}},</td>
+  <td> {{reg.proveedor_id}},</td>
+  <td>{{reg.personal_id}},</td>
+
+
+    <form action="/postEliminarProducto/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{reg.id}}">
+      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
+
+    </form>
+
+    <form action="/buscarProducto/" method="get">
+      <input type="hidden" name="idbus" value="{{reg.id}}">
+      <td><input  type="button" class="btn btn-info" value="Modificar" onclick="{this.form.submit()}">  </td>
+    </form>
+
+
+    </tr>
+    {% endfor %}
+    </table>
+
+  <button onclick="muestraproducto()" type="button" class="btn btn-success">Registrar</button>
+
+
+
+
+
+
+
+
+
+<br><br>
+  <div id="registroproducto">
   <form action="/postinsertarproductos/" method="post">
     {% csrf_token %}
   Nombre:
@@ -18,14 +106,21 @@
   <input type="text" onkeypress="return validardecimal(event)" name="precio" required>
   <br><br>
   Proveedor:
-  <input type="text" onkeypress="return letras(event)" name="proveedor" required>
-  <br><br>
+  <select selected="selected" class="form-control" name="proveedor"  required>
+  {% for reg in pro %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}</select>
   Personal:
-  <input type="text" onkeypress="return letras(event)"  name="personal" required>
+  <select selected="selected" class="form-control" name="personal"  required>
+  {% for reg in per %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}</select>
   <br><br>
-  <input type="submit" name="enviar" value="Guardar">
+  <input onclick="ocultaproducto()" type="submit" name="enviar" value="Guardar">
   <br><br>
-
+</div>
   </form>
   {% if res %}
   <h2>{{res}}</h2>

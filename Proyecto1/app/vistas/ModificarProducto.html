@@ -48,7 +48,7 @@
     {% if res %}
 
   <section>
-    <form action="/postModificarPersonal/" method="post" >
+    <form action="/postModificarProducto/" method="post" >
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
@@ -59,34 +59,31 @@
   <input  value="{{res.nombre}}" id="nombre" onkeypress="return letras(event)" type="text" name="nom" required>
   </div>
   <div class="form-group">
-  <label for="">Apellidos:</label>
-  <input  value="{{res.apellidos}}" id="apellido" onkeypress="return letras(event)" type="text" name="apellidos" required>
+  <label for="">Marca:</label>
+  <input  value="{{res.marca}}" id="marca" onkeypress="return letras(event)" type="text" name="marca" required>
   </div>
 
   <div class="form-group">
-  <label for="">Sexo:</label>
+  <label for="">Precio:</label>
 
-  <input  value="{{res.sexo}}" type="text" name="sexo" required>
+  <input  value="{{res.precio}}" type="text" name="precio" required>
   <!--<select class="" name="">
     <option value="A">Masculinno</option>
     <option value="B">Femenino</option>
   </select>-->
   </div>
   <div class="form-group">
-  <label for="">Telefono:</label>
-  <input  value="{{res.telefono}}" type="text" onkeypress="return numeros(event)" name="telefono" required>
+  <label for="">Proveedor:</label>
+  <input  value="{{res.proveedor_id}}" type="text" onkeypress="return numeros(event)" name="proveedor_id" required>
   </div>
 
   <div class="form-group">
-  <label for="">Email:</label>
-  <input  value="{{res.email}}" type="email" name="email" required>
+  <label for="">Personal:</label>
+  <input  value="{{res.personal_id}}" type="personal" name="personal_id" required>
   </div>
 
-  <div class="form-group">
-  <label for="">Direccion:</label>
-  <input  value="{{res.direccion}}" type="text" onkeypress="return rola(event)" name="direccion" required>
-  </div>
-  <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+
+  <input onclick="ocultaproducto()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

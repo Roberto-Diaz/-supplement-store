@@ -52,19 +52,19 @@
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
-  <input  value="{{res.id}}" type="number" onkeypress="return numeros(event)" name="id" required>
+  <input  value="{{res.id}}" type="number" disabled onkeypress="return numeros(event)" name="id" required>
   </div>
   <div class="form-group">
   <label for="">Nombre:</label>
-  <input  value="{{res.nombre}}" id="nombre" onkeypress="return letras(event)" type="text" name="nom" required>
+  <input  value="{{res.nombre}}" id="nombre" maxlength="30" onkeypress="return letras(event)" type="text" name="nom" required>
   </div>
   <div class="form-group">
   <label for="">Apellidos:</label>
-  <input  value="{{res.apellidos}}" id="apellido" onkeypress="return letras(event)" type="text" name="apellidos" required>
+  <input  value="{{res.apellidos}}" id="apellido" maxlength="30" onkeypress="return letras(event)" type="text" name="apellidos" required>
   </div>
   <div class="form-group">
   <label for="">Edad:</label>
-  <input  value="{{res.edad}}" type="number" onkeypress="return numeros(event)" name="edad" required>
+  <input  value="{{res.edad}}" type="number" maxlength="2" min="18" max="80" onkeypress="return numeros(event)" name="edad" required>
   </div>
   <div class="form-group">
   <label for="">Sexo:</label>
@@ -77,22 +77,22 @@
   </div>
   <div class="form-group">
   <label for="">Telefono:</label>
-  <input  value="{{res.telefono}}" type="text" onkeypress="return numeros(event)" name="telefono" required>
+  <input  value="{{res.telefono}}" maxlength="10" type="text" onkeypress="return numeros(event)" name="telefono" required>
   </div>
 
   <div class="form-group">
   <label for="">Email:</label>
-  <input  value="{{res.email}}" type="email" name="email" required>
+  <input  value="{{res.email}}" maxlength="100" type="email" name="email" required>
   </div>
 
   <div class="form-group">
   <label for="">Direccion:</label>
-  <input  value="{{res.direccion}}" type="text" onkeypress="return rola(event)" name="direccion" required>
+  <input  value="{{res.direccion}}" maxlength="100" type="text" onkeypress="return rola(event)" name="direccion" required>
   </div>
 
   <div class="form-group">
   <label for="">Contraseña</label>
-  <input  value="{{res.password}}" type="password" onkeypress="return contraseña(event)" name="password" required>
+  <input  value="{{res.password}}" maxlength="100" type="password" onkeypress="return contraseña(event)" name="password" required>
   </div>
   <input onclick="oculta()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>

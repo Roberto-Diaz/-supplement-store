@@ -52,21 +52,21 @@
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
-  <input  value="{{res.id}}" type="number" onkeypress="return numeros(event)" name="id" required>
+  <input  value="{{res.id}}" disabled type="number" onkeypress="return numeros(event)" name="id" required>
   </div>
   <div class="form-group">
   <label for="">Nombre:</label>
-  <input  value="{{res.nombre}}" id="nombre" onkeypress="return letras(event)" type="text" name="nom" required>
+  <input  value="{{res.nombre}}" maxlength="30" id="nombre" onkeypress="return letras(event)" type="text" name="nom" required>
   </div>
   <div class="form-group">
   <label for="">Marca:</label>
-  <input  value="{{res.marca}}" id="marca" onkeypress="return letras(event)" type="text" name="marca" required>
+  <input  value="{{res.marca}}" maxlength="30" id="marca" onkeypress="return letras(event)" type="text" name="marca" required>
   </div>
 
   <div class="form-group">
   <label for="">Precio:</label>
 
-  <input  value="{{res.precio}}" type="text" name="precio" required>
+  <input  value="{{res.precio}}" maxlength="4" min="50" max="2500" type="text" name="precio" required>
   <!--<select class="" name="">
     <option value="A">Masculinno</option>
     <option value="B">Femenino</option>

@@ -1,5 +1,18 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from proyecto.models import *
+
+def handler404(request):
+    return render(request,'error/error404.html')
+
+def handler400(request):
+    return render(request,'error/error400.html')
+
+def handler403(request):
+    return render(request,'error/error403.html')
+
+def handler500(request):
+    return render(request,'error/error500.html')
 
 
 def getConsulta(request):
@@ -39,6 +52,11 @@ def eliminarSucursal(request):
 	c = Sucursal(request.POST['id'])
 	c.delete()
 	return getSucursal(request)
+
+def eliminarVenta(request):
+	c = Ventas(request.POST['id'])
+	c.delete()
+	return getVentas(request)
 
 def productosLin(request):
     return render(request, 'productosLineas.html')
@@ -138,8 +156,13 @@ def postInsertarProductos(request):
     pr.save()
     return getProductos(request)
 
+
 def getVentas(request):
-    return render(request, 'Ventas.html')
+    rventas = Ventas.objects.all()
+    cli = Cliente.objects.all()
+    per = Personal.objects.all()
+    suc= Sucursal.objects.all()
+    return render(request,'Ventas.html', {'regs':rventas, 'cli':cli, 'per':per, 'suc':suc})
 
 def postInsertarVentas(request):
     total = request.POST['total']
@@ -149,7 +172,8 @@ def postInsertarVentas(request):
 
     v= Ventas(total = total, cliente_id = cliente, personal_id = personal, sucursal_id = sucursal)
     v.save()
-    return render(request, 'Ventas.html',{'res':'Venta registrada correctamente'})
+    return getVentas(request)
+    #return render(request, 'Ventas.html',{'res':'Venta registrada correctamente'})
 
 
 
@@ -167,6 +191,12 @@ def buscarProveedor(request):
         return render(request, 'ModificarProveedor.html',{'res':c})
     return render(request, 'ModificarProveedor.html')
 
+def buscarVenta(request):
+    if 'idbus' in request.GET:
+        id = request.GET['idbus']
+        c = Ventas.objects.get(id=id)
+        return render(request, 'ModificarVenta.html',{'res':c})
+    return render(request, 'ModificarVenta.html')
 
 def buscarSucursal(request):
     if 'idbus' in request.GET:
@@ -235,6 +265,19 @@ def postModificarPersonal(request):
         direccion = direccion,edad=edad,sucursal_id=sucursal_id)
         p.save()
         return getPersonal2(request)
+
+
+def postModificarVenta(request):
+        id = request.POST['id']
+        total = request.POST['total']
+        fecha = request.POST['fecha']
+        cliente_id = request.POST['cliente_id']
+        personal_id = request.POST['personal_id']
+        sucursal_id = request.POST['sucursal_id']
+        p = Ventas(id= id, total = total, fecha= fecha,
+        cliente_id= cliente_id, personal_id = personal_id, sucursal_id=sucursal_id)
+        p.save()
+        return getVentas(request)
 
 def postModificarProducto(request):
         id = request.POST['id']

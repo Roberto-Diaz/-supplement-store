@@ -11,6 +11,16 @@ function ocultarRprove(){
   oculta.style.display="none";
 }
 
+function ocultaventa(){
+  var r = document.getElementById("registroventa");
+  r.style.display="none";
+}
+
+
+function muestraventa(){
+  var r = document.getElementById("registroventa");
+  r.style.display="block";
+}
 
 function ocultarRSucursal(){
   var oculta = document.getElementById("registroSucursal");

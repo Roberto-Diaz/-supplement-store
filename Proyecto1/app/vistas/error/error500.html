@@ -2,54 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Error 404</title>
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <title>Error 500</title>
+    <link rel="stylesheet" href="{% static 'css/MenuPie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/visorProductos.css' %}">
+        <sript src="{% static 'js/productos.js' %}"></sript>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
 </head>
 <body>
     <header>
-        <img src="../img/logo.png" alt="Logo de la empresa" width="30%">
+      <!--  <img src="../img/logo.png" alt="Logo de la empresa" width="30%">-->
     </header>
     <div>
-        <h1>ERROR 503 - Service unavailable</h1>
+        <h1>ERROR 500 - Service unavailable</h1>
         <p style="text-align:justify;">Tu proveedor de servicios Internet o la conexión Internet de la compañía se ha caído. Tómate unos momentos e intentalo de nuevo. Si todavía no funciona, puedes telefonear a tu proveedor de servicios de Internet.</p> <hr>
         <p>Si el error persiste, por favor ponte en contacto con nosotros en: supplement-store@supplement.com <br> ó al teléfono: 01-800-321-95-76</p>
         <a href="../index.html"><button class="btn btn-primary">Ir al sitio principal</button></a>
     </div>
     <img src="../img/error503.png" alt="" id="error">
-    
+
     <style>
         body{
             background-color: #9e9e9e;
         }
-        
+
         *{
                 margin: 0px;
                 padding: 0px;
             }
-        
+
         header{
-            
+
             width: 100%;
             height:100px;
-            
+
             background: #1e88e5;
             text-align: center;
         }
-        
+
         p{
-            
+
             font-size: 25px;
         }
-        
+
         #error{
             margin-left: 78%;
             width: 9%;
             margin-top: -30%;
             height: 120px;
         }
-        
+
         div{
             margin-top: 5%;
             margin-left: 10%;
@@ -57,8 +62,8 @@
             width: 60%;
         }
     </style>
-    
-    
-    
+
+
+
 </body>
 </html>

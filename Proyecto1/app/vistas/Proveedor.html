@@ -96,11 +96,11 @@
   <form action="/postinsertarproveedor/" method="post">
       {% csrf_token %}
   Nombre:
-  <input type="text" onkeypress="return letras(event)" name="nombre" required>
+  <input type="text" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
   <br>
   <br>
   Apellidos:
-  <input type="text" onkeypress="return letras(event)" name="apellidos" required>
+  <input type="text" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
   <br><br>
   Sexo:<!--
   <select class="" name="">
@@ -111,13 +111,13 @@
   <input type="text" name="sexo" required>
   <br><br>
   Telefono:
-  <input type="text" onkeypress="return numeros(event)" name="telefono" required>
+  <input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
   <br><br>
   Email:
-  <input type="email" name="email" required>
+  <input type="email" maxlength="100" name="email" required>
   <br><br>
   Direccion:
-  <input type="text" onkeypress="return rola(event)" name="direccion" required>
+  <input type="text" onkeypress="return rola(event)" maxlength="100" name="direccion" required>
   <br><br>
   <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar">
   </form>

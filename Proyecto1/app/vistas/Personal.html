@@ -94,25 +94,25 @@
   <form action="/postInsertarPersonal/" method="post">
   {% csrf_token %}
 Nombre:
-<input type="text" onkeypress="return letras(event)" name="nombre" required>
+<input type="text" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
 <br>
 Apellidos:
-<input type="text" onkeypress="return letras(event)" name="apellidos" required>
+<input type="text" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
 <br>
 Edad:
-<input type="number" onkeypress="return numeros(event)" name="edad" required>
+<input type="number" onkeypress="return numeros(event)" maxlength="2" min="18" max="50" name="edad" required>
 <br>
 Sexo:
 <input type="text"  name="sexo" required>
 <br>
 Telefono:
-<input type="text" onkeypress="return numeros(event)" name="telefono" required>
+<input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
 <br>
 Email:
-<input type="email" name="email" required>
+<input type="email" maxlength="100" name="email" required>
 <br>
 Direccion:
-<input type="text" onkeypress="return rola(event)" name="direccion" required>
+<input type="text" maxlength="100" onkeypress="return rola(event)" name="direccion" required>
 <br>
 Sucursal:
 <select selected="selected" class="form-control" name="sucursal"  required>

@@ -83,7 +83,7 @@
   </div>
 
 
-  <input onclick="ocultaproducto()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+  <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

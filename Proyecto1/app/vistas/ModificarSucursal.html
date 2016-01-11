@@ -58,7 +58,7 @@
   <label for="">Ubicacion:</label>
   <input  value="{{res.ubicacion}}" id="nombre" onkeypress="return letras(event)" type="text" name="ubicacion" required>
   </div>
-  <input onclick="ocultarRSucursal()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+  <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}s" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

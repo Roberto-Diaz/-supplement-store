@@ -77,7 +77,7 @@
     <form action="/postEliminar/" method="post">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{reg.id}}">
-      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
+      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('Al eliminar este cliente tambien afectara la tabla ventas, ¿Desea eliminarlo?')){this.form.submit();}">  </td>
 
     </form>
 

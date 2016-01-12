@@ -75,9 +75,7 @@
   <label for="">Sucursal:</label>
   <input  value="{{res.sucursal_id}}" type="number" onkeypress="return rola(event)" name="sucursal_id" required>
   </div>
-
-
-  <input onclick="ocultaventa()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+  <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

@@ -83,7 +83,8 @@
   <label for="">Direccion:</label>
   <input  value="{{res.direccion}}" maxlength="100" type="text" onkeypress="return rola(event)" name="direccion" required>
   </div>
-  <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+  <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+
   </form>
       {% endif %}
   </section>

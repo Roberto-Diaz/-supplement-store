@@ -19,8 +19,6 @@
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
 
-
-
   </head>
 
 </head>
@@ -79,8 +77,6 @@
   <label for="">Personal:</label>
   <input  value="{{res.personal_id}}" type="personal" name="personal_id" required>
   </div>
-
-
   <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}

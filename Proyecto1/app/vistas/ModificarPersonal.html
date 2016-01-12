@@ -61,15 +61,19 @@
   <input  value="{{res.apellidos}}" maxlength="30" id="apellido" onkeypress="return letras(event)" type="text" name="apellidos" required>
   </div>
 
+
   <div class="form-group">
   <label for="">Sexo:</label>
-
-  <input  value="{{res.sexo}}" type="text" name="sexo" required>
-  <!--<select class="" name="">
-    <option value="A">Masculinno</option>
-    <option value="B">Femenino</option>
-  </select>-->
+  <select selected="selected" type="text" name="sexo"  required>
+  <option selected value="{{res.sexo}}">{{res.sexo}}</option>
+  <option value="Masculino">Masculino</option>
+  <option  value="Femenino">Femenino</option>
+  </select>
   </div>
+  <br><br>
+
+
+
   <div class="form-group">
   <label for="">Telefono:</label>
   <input  value="{{res.telefono}}" maxlength="10" type="text" onkeypress="return numeros(event)" name="telefono" required>
@@ -92,8 +96,21 @@
 
   <div class="form-group">
   <label for="">Sucursal:</label>
-  <input  value="{{res.sucursal_id}}" type="text" onkeypress="return rola(event)" name="sucursal_id" required>
+  <select selected="selected" name="sucursal_id"  required>
+  {% for reg in suc %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.sucursal_id}}">
+  {{res.sucursal_id}}
+  </option>
+  </select>
+  <!--<input  value="{{res.sucursal_id}}" type="text" onkeypress="return rola(event)" name="sucursal_id" required>-->
   </div>
+
+
+
+
   <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}

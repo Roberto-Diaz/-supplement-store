@@ -101,16 +101,16 @@
   <input type="text" onkeypress="return letras(event)" maxlength="30" name="marca" required>
   <br><br>
   Precio:
-  <input type="text" onkeypress="return validardecimal(event)" value="50" maxlength="4" min="50" max="2500" name="precio" required>
+  <input type="text"  onkeypress="return validardecimal(event)" value="50" maxlength="4" min="50" max="2500" name="precio" required>
   <br><br>
   Proveedor:
-  <select selected="selected" class="form-control" name="proveedor"  required>
+  <select selected="selected"  name="proveedor"  required>
   {% for reg in pro %}
   <option value="{{reg.id}}">
   {{reg.id}}
   </option>{% endfor %}</select>
-  Personal:
-  <select selected="selected" class="form-control" name="personal"  required>
+  Personal:  
+  <select selected="selected"  name="personal"  required>
   {% for reg in per %}
   <option value="{{reg.id}}">
   {{reg.id}}

@@ -49,7 +49,7 @@
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
-  <input  value="{{res.id}}" type="number" onkeypress="return numeros(event)" name="id" required>
+  <input value="{{res.id}}" type="number"  onkeypress="return numeros(event)" name="id" required>
   </div>
   <div class="form-group">
   <label for="">Nombre:</label>
@@ -63,15 +63,22 @@
   <label for="">Edad:</label>
   <input  value="{{res.edad}}" type="number" maxlength="2" min="18" max="80" onkeypress="return numeros(event)" name="edad" required>
   </div>
+
   <div class="form-group">
   <label for="">Sexo:</label>
-
-  <input  value="{{res.sexo}}" type="text" name="sexo" required>
-  <!--<select class="" name="">
-    <option value="A">Masculinno</option>
-    <option value="B">Femenino</option>
-  </select>-->
+  <select selected="selected" type="text" name="sexo"  required>
+  <option selected value="{{res.sexo}}">{{res.sexo}}</option>
+  <option  value="Masculino">Masculino</option>
+  <option  value="Femenino">Femenino</option>
+  </select>
   </div>
+  <br><br>
+
+
+
+
+
+
   <div class="form-group">
   <label for="">Telefono:</label>
   <input  value="{{res.telefono}}" maxlength="10" type="text" onkeypress="return numeros(event)" name="telefono" required>

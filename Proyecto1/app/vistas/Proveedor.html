@@ -100,14 +100,15 @@
   Apellidos:
   <input type="text" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
   <br><br>
-  Sexo:<!--
-  <select class="" name="">
-    <option value="A">Masculino</option>
-    <option value="B">Femenino</option>
+
+  <div class="form-group">
+  <label for="">Sexo:</label>
+  <select selected="selected" type="text" name="sexo"  required>
+  <option selected value="Masculino">Masculino</option>
+  <option  value="Femenino">Femenino</option>
   </select>
--->
-  <input type="text" name="sexo" required>
-  <br><br>
+  </div>
+  <br>
   Telefono:
   <input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
   <br><br>

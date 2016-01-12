@@ -63,18 +63,48 @@
 
   <div class="form-group">
   <label for="">Cliente:</label>
-  <input  value="{{res.cliente_id}}" type="text" name="cliente_id" required>
+  <!--<input  value="{{res.cliente_id}}" type="text" name="cliente_id" required>-->
+  <select selected="selected" name="cliente_id"  required>
+  {% for reg in cli %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.cliente_id}}">
+  {{res.cliente_id}}
+  </option>
+  </select>
   </div>
 
   <div class="form-group">
   <label for="">Personal:</label>
-  <input  value="{{res.personal_id}}" type="text" onkeypress="return numeros(event)" name="personal_id" required>
+  <!--<input  value="{{res.personal_id}}" type="text" onkeypress="return numeros(event)" name="personal_id" required>-->
+  <select selected="selected" name="personal_id"  required>
+  {% for reg in per %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.personal_id}}">
+  {{res.personal_id}}
+  </option>
+  </select>
   </div>
 
   <div class="form-group">
   <label for="">Sucursal:</label>
-  <input  value="{{res.sucursal_id}}" type="number" onkeypress="return rola(event)" name="sucursal_id" required>
+  <select selected="selected" name="sucursal_id"  required>
+  {% for reg in suc %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.sucursal_id}}">
+  {{res.sucursal_id}}
+  </option>
+  </select>
+  <!--<input  value="{{res.sucursal_id}}" type="number" onkeypress="return rola(event)" name="sucursal_id" required>-->
   </div>
+
+
+
   <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}

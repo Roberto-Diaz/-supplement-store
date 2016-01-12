@@ -186,6 +186,7 @@ def buscar(request):
 def buscarProveedor(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
+
         c = Proveedor.objects.get(id=id)
         return render(request, 'ModificarProveedor.html',{'res':c})
     return render(request, 'ModificarProveedor.html')
@@ -194,6 +195,9 @@ def buscarVenta(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
         c = Ventas.objects.get(id=id)
+        cli= Cliente.objects.all()
+        per= Personal.objects.all()
+        suc= Sucursal.objects.all()
         return render(request, 'ModificarVenta.html',{'res':c})
     return render(request, 'ModificarVenta.html')
 
@@ -208,14 +212,17 @@ def buscarPersonal(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
         p = Personal.objects.get(id=id)
-        return render(request, 'ModificarPersonal.html',{'res':p})
+        suc= Sucursal.objects.all()
+        return render(request, 'ModificarPersonal.html',{'res':p, 'suc':suc})
     return render(request, 'ModificarPersonal.html')
 
 def buscarProducto(request):
     if 'idbus' in request.GET:
         id = request.GET['idbus']
         p = Productos.objects.get(id=id)
-        return render(request, 'ModificarProducto.html',{'res':p})
+        per= Personal.objects.all()
+        pro= Proveedor.objects.all()
+        return render(request, 'ModificarProducto.html',{'res':p, 'per':per, 'pro':pro})
     return render(request, 'ModificarProducto.html')
 
 def postModificar(request):

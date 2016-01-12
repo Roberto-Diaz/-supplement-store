@@ -45,7 +45,7 @@
     {% if res %}
 
   <section>
-    <form action="/postModificarPersonal/" method="post" >
+    <form action="/postModificarProveedor/" method="post" >
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
@@ -62,13 +62,13 @@
 
   <div class="form-group">
   <label for="">Sexo:</label>
-
-  <input  value="{{res.sexo}}" type="text" name="sexo" required>
-  <!--<select class="" name="">
-    <option value="A">Masculinno</option>
-    <option value="B">Femenino</option>
-  </select>-->
+  <select selected="selected" type="text" name="sexo"  required>
+  <option selected value="{{res.sexo}}">{{res.sexo}}</option>
+  <option value="Masculino">Masculino</option>
+  <option  value="Femenino">Femenino</option>
+  </select>
   </div>
+  <br><br>
   <div class="form-group">
   <label for="">Telefono:</label>
   <input  value="{{res.telefono}}" maxlength="10" type="text" onkeypress="return numeros(event)" name="telefono" required>

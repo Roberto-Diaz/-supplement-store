@@ -62,21 +62,38 @@
   <div class="form-group">
   <label for="">Precio:</label>
 
-  <input  value="{{res.precio}}" maxlength="4" min="50" max="2500" type="text" name="precio" required>
+  <input  value="{{res.precio}}"  maxlength="4" min="50" max="2500" type="number" name="precio" required>
   <!--<select class="" name="">
     <option value="A">Masculinno</option>
     <option value="B">Femenino</option>
   </select>-->
   </div>
-  <div class="form-group">
-  <label for="">Proveedor:</label>
-  <input  value="{{res.proveedor_id}}" type="text" onkeypress="return numeros(event)" name="proveedor_id" required>
-  </div>
 
-  <div class="form-group">
+  <label for="">Proveedor:</label>
+  <!--input  value="{{res.proveedor_id}}" type="text" onkeypress="return numeros(event)" name="proveedor_id" required>-->
+  <select selected="selected" name="proveedor_id"  required>
+  {% for reg in pro %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.proveedor_id}}">
+  {{res.proveedor_id}}
+  </option>
+  </select>
+
+
+
   <label for="">Personal:</label>
-  <input  value="{{res.personal_id}}" type="personal" name="personal_id" required>
-  </div>
+  <select selected="selected" name="personal_id"  required>
+  {% for reg in per %}
+  <option value="{{reg.id}}">
+  {{reg.id}}
+  </option>{% endfor %}
+  <option selected value="{{res.personal_id}}">
+  {{res.personal_id}}
+  </option>
+  </select>
+  <br><br>
   <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}

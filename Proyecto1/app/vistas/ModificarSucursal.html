@@ -50,13 +50,13 @@
       {% csrf_token %}
   <div class="form-group">
   <label for="">Id:</label>
-  <input  value="{{res.id}}" disabled type="number" onkeypress="return numeros(event)" name="id" required>
+  <input  value="{{res.id}}" type="number" onkeypress="return numeros(event)" name="id" required>
   </div>
   <div class="form-group">
   <label for="">Ubicacion:</label>
   <input  value="{{res.ubicacion}}" id="nombre" onkeypress="return letras(event)" type="text" name="ubicacion" required>
   </div>
-  <input onclick="ocultarRSucursal()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
+  <input onclick="if(confirm('¿Esta seguro de guardar los cambios?')){this.form.submit();}s" type="submit" name="enviar" value="Guardar" class="btn btn-default">
   </form>
       {% endif %}
   </section>

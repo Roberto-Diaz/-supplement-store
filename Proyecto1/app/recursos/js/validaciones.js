@@ -69,7 +69,10 @@ function oculta(){
   oculta.style.display="none";
 }
 
-
+function ocultac(){
+  var oculta = document.getElementById("divid");
+  oculta.style.display="none";
+}
 
 function muestra2(){
   var mostrar2 = document.getElementById("modificacion");

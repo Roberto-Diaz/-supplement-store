@@ -6,6 +6,12 @@ function letras(tecla){
    }
 }
 
+
+function email(tecla){
+   
+}
+
+
 function ocultarRprove(){
   var oculta = document.getElementById("registroproveedor");
   oculta.style.display="none";
@@ -15,6 +21,8 @@ function ocultaventa(){
   var r = document.getElementById("registroventa");
   r.style.display="none";
 }
+
+
 
 
 function muestraventa(){

@@ -15,21 +15,24 @@ def handler500(request):
     return render(request,'error/error500.html')
 
 
-def getConsulta(request):
+def getCliente(request):
     rcliente = Cliente.objects.all()
-    return render(request,'Consultar.html', {'regs':rcliente})
+    return render(request,'Cliente.html', {'regs':rcliente})
 
 
 
 def index(request):
     return render(request, 'index.html')
 
+def acerca(request):
+    return render(request, 'acerca-de.html')
+
 #def productosLineas(request):
 #    return render(request, 'productosLineas.html')
 def eliminarCliente(request):
 	c = Cliente(request.POST['id'])
 	c.delete()
-	return getConsulta(request)
+	return getCliente(request)
 
 
 def eliminarProveedor(request):
@@ -58,11 +61,7 @@ def eliminarVenta(request):
 	c.delete()
 	return getVentas(request)
 
-def productosLin(request):
-    return render(request, 'productosLineas.html')
 
-def getCliente(request):
-    return render(request, 'Cliente.html')
 
 def postInsertarCliente(request):
     #id = request.POST['id']
@@ -78,7 +77,7 @@ def postInsertarCliente(request):
     edad = edad, sexo = sexo, telefono = telefono, email = email,
     direccion = direccion, password = password)
     c.save()
-    return getConsulta(request)
+    return getCliente(request)
     #return render(request, 'Consultar.html',{'res':'Cliente registrado correctamente'})
 
 def getProveedor(request):
@@ -233,7 +232,7 @@ def postModificar(request):
     edad = edad, sexo = sexo, telefono = telefono, email = email,
     direccion = direccion, password = password)
     c.save()
-    return getConsulta(request)
+    return getCliente(request)
 
 
 def postModificarProveedor(request):

@@ -28,7 +28,7 @@
       <nav id="menu" style="width:100%" >
         <ul>
                 <li><a href="/index/">Inicio</a></li>
-                <li><a href="/Consultar/">Cliente</a></li>
+                <li><a href="/Cliente/">Cliente</a></li>
                 <li><a href="/Personal/">Personal</a></li>
                 <li><a href="/Proveedor/">Proveedor</a></li>
                 <li><a href="/Sucursal/">Sucursal</a></li>
@@ -70,7 +70,7 @@
     <form action="/postEliminarProve/" method="post">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{reg.id}}">
-      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('Al eliminar este Proveedor tambien afectara la tabla Productos, ¿Desea eliminarlo?')){this.form.submit();}">  </td>
+      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
 
     </form>
 

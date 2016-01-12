@@ -65,7 +65,7 @@
     <form action="/postEliminarSucu/" method="post">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{reg.id}}">
-      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('¿Esta seguro de realizar esta acción?')){this.form.submit();}">  </td>
+      <td><input type="button" class="btn btn-danger" value="Eliminar" onclick="if(confirm('Si eliminas esta sucursal es posible que afectes las tablas Personal y Ventas, ¿Desea eliminarla?')){this.form.submit();}">  </td>
 
     </form>
 

@@ -94,11 +94,11 @@
   <form action="/postinsertarproveedor/" method="post">
       {% csrf_token %}
   Nombre:
-  <input type="text" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
+  <input type="text" placeholder="ej.Juan" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
   <br>
   <br>
   Apellidos:
-  <input type="text" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
+  <input type="text" onkeypress="return placeholder="ej.Gomez Rivera" letras(event)" maxlength="30" name="apellidos" required>
   <br><br>
 
   <div class="form-group">
@@ -110,13 +110,13 @@
   </div>
   <br>
   Telefono:
-  <input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
+  <input type="text" placeholder="7671005060" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
   <br><br>
   Email:
-  <input type="email" maxlength="100" name="email" required>
+  <input type="email" placeholder="ej.example@gmail.com" maxlength="100" name="email" required>
   <br><br>
   Direccion:
-  <input type="text" onkeypress="return rola(event)" maxlength="100" name="direccion" required>
+  <input type="text"  class="form-control" placeholder="ej. calle 5 de mayo, col. progreso, #319, guerrero" onkeypress="return dire(event)" maxlength="100" name="direccion" required>
   <br><br>
   <input onclick="ocultarRprove()" type="submit" name="enviar" value="Guardar">
   </form>

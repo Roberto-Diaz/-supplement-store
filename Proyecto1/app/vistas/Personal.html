@@ -94,16 +94,16 @@
   {% csrf_token %}
 <div class="form-group">
 <label for="">Nombre:</label>
-<input type="text" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
+<input type="text" placeholder="ej.juan" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
 </div>
 <div class="form-group">
 <label for="">Apellidos:</label>
-<input type="text" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
+<input type="text" placeholder="ej.Gomez Rivera" onkeypress="return letras(event)" maxlength="30" name="apellidos" required>
 </div>
 <div class="form-group">
 <label for="">Edad:</label>
 
-<input type="number" onkeypress="return numeros(event)" maxlength="2" min="18" max="50" name="edad" required>
+<input type="number" placeholder="18" onkeypress="return numeros(event)" maxlength="2" min="18" max="50" name="edad" required>
 </div>
 <div class="form-group">
 <label for="">Sexo:</label>
@@ -115,25 +115,26 @@
 <br>
 <div class="form-group">
 <label for="">Telefono:</label>
-<input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
+<input type="text" placeholder="7671005060" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
 </div>
 <div class="form-group">
 <label for="">Email:</label>
-<input type="email" maxlength="100" name="email" required>
+<input type="email" maxlength="100" name="email"  placeholder="ej.example@gmail.com" required>
 </div>
 <div class="form-group">
 <label for="">Direccion:</label>
-<input type="text" maxlength="100" onkeypress="return rola(event)" name="direccion" required>
+<input type="text"  class="form-control" maxlength="100" placeholder="ej. calle 5 de mayo, col. progreso, #319, guerrero" onkeypress="return dire(event)" name="direccion" required>
 </div>
-
+<div class="form-group">
 <label for="">Sucursal:</label>
 <select selected="selected"  name="sucursal"  required>
-{% for reg in r %}
+{% for regs in r %}
 
-<option value="{{reg.id}}"  >
+<option value="{{regs.ubicacion}}"  >
 
-{{reg.id}}
+ID: {{regs.id}},{{regs.ubicacion}}
 </option>{% endfor %}</select>
+</div>
 <br>
 <br>
 <input type="submit" name="enviar" value="Guardar">

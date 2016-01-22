@@ -87,7 +87,7 @@
   <form action="/postinsertarsucursal/" method="post">
     {% csrf_token %}
   Ubicacion:
-  <input type="text" name="ubicacion" required>
+  <input type="text" onkeypress="return dire(event)" class="form-control" placeholder="ej. calle 5 de mayo, col. progreso, guerrero" name="ubicacion" required>
   <br><br>
   <input onclick="ocultarRSucursal()" type="submit" name="enviar" value="Guardar">
   </form>

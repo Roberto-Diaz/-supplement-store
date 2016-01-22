@@ -7,8 +7,13 @@ function letras(tecla){
 }
 
 
-function email(tecla){
-   
+function dire(tecla){
+  if( tecla.keyCode>=65 && tecla.keyCode<=90  || tecla.keyCode>=97 && tecla.keyCode<=122 || tecla.keyCode>="0".charCodeAt(0) && tecla.keyCode<="9".charCodeAt(0)
+  || tecla.keyCode==35 || tecla.keyCode==46 || tecla.keyCode==44 || tecla.keyCode==32){
+       return true;
+   }else{
+       return false
+   }
 }
 
 

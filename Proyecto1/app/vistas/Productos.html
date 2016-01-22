@@ -59,7 +59,7 @@
   <td>{{reg.nombre}},</td>
   <td> {{reg.marca}},</td>
   <td>{{reg.precio}},</td>
-  <td> {{reg.proveedor_id}},</td>
+  <td> {{reg.proveedor_id}}</td>
   <td>{{reg.personal_id}},</td>
 
 
@@ -82,34 +82,26 @@
 
   <button onclick="muestraproducto()" type="button" class="btn btn-success">Registrar</button>
 
-
-
-
-
-
-
-
-
 <br><br>
   <div id="registroproducto">
   <form action="/postinsertarproductos/" method="post">
     {% csrf_token %}
   Nombre:
-  <input type="text" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
+  <input type="text" placeholder="ej.whey" onkeypress="return letras(event)" maxlength="30" name="nombre" required>
   <br><br>
   Marca:
-  <input type="text" onkeypress="return letras(event)" maxlength="30" name="marca" required>
+  <input type="text" placeholder="ej.Puro Campeon" onkeypress="return letras(event)" maxlength="30" name="marca" required>
   <br><br>
   Precio:
-  <input type="text"  onkeypress="return validardecimal(event)" value="50" maxlength="4" min="50" max="2500" name="precio" required>
+  <input maxlength="7" type="number" placeholder="ej.2500" onkeypress="return validardecimal(event)" value="50"  min="50"  name="precio" required>
   <br><br>
   Proveedor:
   <select selected="selected"  name="proveedor"  required>
   {% for reg in pro %}
-  <option value="{{reg.id}}">
+  <option value="{{reg.nombre}}">
   {{reg.id}}
   </option>{% endfor %}</select>
-  Personal:  
+  Personal:
   <select selected="selected"  name="personal"  required>
   {% for reg in per %}
   <option value="{{reg.id}}">

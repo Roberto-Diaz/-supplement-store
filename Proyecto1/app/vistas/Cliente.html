@@ -19,7 +19,6 @@
 
   </head>
 
-</head>
 <body onload="oculta()">
   <header>
 
@@ -97,15 +96,15 @@
         {% csrf_token %}
     <div class="form-group">
     <label for="">Nombre:</label>
-    <input id="nombre" onkeypress="return letras(event)" type="text" name="nom" maxlength="30" required>
+    <input id="nombre"  placeholder="ej.Juan" onkeypress="return letras(event)" type="text" name="nom" maxlength="30" required>
     </div>
     <div class="form-group">
     <label for="">Apellidos:</label>
-    <input id="apellido" onkeypress="return letras(event)" type="text" maxlength="30" name="apellidos" required>
+    <input id="apellido"  placeholder="ej.Gomez Rivera" onkeypress="return letras(event)" type="text" maxlength="30" name="apellidos" required>
     </div>
     <div class="form-group">
     <label for="">Edad:</label>
-    <input type="number" onkeypress="return numeros(event)" maxlength="2" min="18" max="80" name="edad" required>
+    <input type="number" placeholder="18" onkeypress="return numeros(event)" maxlength="2" min="18" max="80" name="edad" required>
     </div>
     <div class="form-group">
     <label for="">Sexo:</label>
@@ -119,22 +118,22 @@
 
     <div class="form-group">
     <label for="">Telefono:</label>
-    <input type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
+    <input  placeholder="7671005060" type="text" onkeypress="return numeros(event)" maxlength="10" name="telefono" required>
     </div>
 
     <div class="form-group">
     <label for="">Email:</label>
-    <input type="text"  onkeypress="return email(event)" name="email" required>
-    </div>
+    <input type="text" placeholder="ej.example@gmail.com" onkeypress="return email(event)" name="email"
+    required> </div>
 
     <div class="form-group">
     <label for="">Direccion:</label>
-    <input type="text" onkeypress="return rola(event)" name="direccion" required>
+    <input type="text"  class="form-control" placeholder="ej. calle 5 de mayo, col. progreso, #319, guerrero" onkeypress="return dire(event)" name="direccion" required>
     </div>
 
     <div class="form-group">
     <label for="">Contraseña</label>
-    <input type="password" onkeypress="return contraseña(event)" maxlength="100" name="password" required>
+    <input type="password" placeholder="ej.pass123" onkeypress="return contraseña(event)" maxlength="100" name="password" required>
     </div>
     <input onclick="oculta()" type="submit" name="enviar" value="Guardar" class="btn btn-default">
       </form>

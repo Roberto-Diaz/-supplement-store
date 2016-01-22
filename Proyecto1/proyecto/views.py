@@ -13,8 +13,7 @@ def handler403(request):
 
 def handler500(request):
     return render(request,'error/error500.html')
-
-
+    
 def getCliente(request):
     rcliente = Cliente.objects.all()
     return render(request,'Cliente.html', {'regs':rcliente})
@@ -125,9 +124,11 @@ def postInsertarPersonal(request):
     email = request.POST['email']
     direccion = request.POST['direccion']
     sucursal = request.POST['sucursal']
+    idsucursal =  Sucursal.objects.filter(ubicacion= sucursal).values_list('id')
+    ubisuc = idsucursal[0][0]
     pe = Personal(nombre = nombre, apellidos = apellidos,
     edad = edad, sexo = sexo, telefono = telefono, email = email,
-    direccion = direccion, sucursal_id = sucursal)
+    direccion = direccion, sucursal_id = ubisuc)
     pe.save()
     return getPersonal2(request)
     #return render(request, 'Personal.html',{'res':'Personal registrado correctamente'})

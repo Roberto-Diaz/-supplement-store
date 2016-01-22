@@ -92,7 +92,7 @@
 <form action="/postinsertarventas/" method="post">
   {% csrf_token %}
 Total:
-<input type="text" onkeypress="return validardecimal(event)" name="total" required>
+<input type="text" placeholder="ej.2.500" maxlength="7" min="50" max="1000000" onkeypress="return validardecimal(event)" name="total" required>
 <br><br>
 Cliente:
 <select selected="selected" name="cliente"  required>
